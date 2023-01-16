@@ -4,9 +4,14 @@ pipeline {
         buildDiscarder logRotator(numToKeepStr: '5')
     }
     stages {
-        stage('Stage 1') {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'gcc'
+                }
+            }
             steps {
-                echo 'Hello world!' 
+                sh 'gcc --version'
             }
         }
     }
