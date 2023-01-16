@@ -11,7 +11,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'gcc ./src/main.cpp -lstdc++ -o main'
+                sh 'g++ -std=c++1y -g ./src/main.cpp -o main'
                 sh './main'
             }
         }
