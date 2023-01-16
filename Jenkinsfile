@@ -11,7 +11,8 @@ pipeline {
                 }
             }
             steps {
-                sh 'gcc --version'
+                sh 'gcc ./src/main.cpp -lstdc++ -o main'
+                sh './main'
             }
         }
     }
