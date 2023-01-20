@@ -7,7 +7,6 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'gcc'
 		    image 'cmake'
                 }
             }
