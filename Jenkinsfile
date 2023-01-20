@@ -5,12 +5,9 @@ pipeline {
     }
     stages {
         stage('Build') {
-            cmakeBuild {
-                sourceDir: 'src'
-                buildDir: 'build'
-                installation: 'InSearchPath'
-            }
-			sh './main'
+	    steps {
+                cmakeBuild installation: 'InSearchPath', steps: [[withCmake: true]]
+	    }
         }
     }
 }
