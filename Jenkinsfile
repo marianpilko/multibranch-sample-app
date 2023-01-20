@@ -6,7 +6,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cmakeBuild cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
+                sh 'mkdir build'
+                sh 'cd build'
+                sh 'cmake ..'
+                sh 'cmake --build .'
             }
         }
     }
