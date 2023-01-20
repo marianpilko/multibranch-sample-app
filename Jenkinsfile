@@ -4,9 +4,15 @@ pipeline {
         buildDiscarder logRotator(numToKeepStr: '5')
     }
     stages {
-        stage('Stage 1') {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'gcc'
+                }
+            }
             steps {
-                echo 'Hello world!' 
+                sh 'g++ -std=c++1y -g ./src/main.cpp -o main'
+                sh './main'
             }
         }
     }
