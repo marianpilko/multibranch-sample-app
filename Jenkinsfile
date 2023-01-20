@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
 	    steps {
-                cmakeBuild installation: 'InSearchPath', sourceDir: 'src', buildDir: 'build', steps: [[withCmake: true]]
+                cmakeBuild clearnBuild: true, installation: 'InSearchPath', buildDir: 'build', steps: [[withCmake: true]]
 	    }
         }
     }
