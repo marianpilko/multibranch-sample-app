@@ -5,15 +5,12 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'gcc'
-                }
+            cmakeBuild {
+                sourceDir: 'src'
+                buildDir: 'build'
+                installation: 'InSearchPath'
             }
-            steps {
-                sh 'g++ -std=c++1y -g ./src/main.cpp -o main'
-                sh './main'
-            }
+			sh './main'
         }
     }
 }
