@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-		    image 'cmake'
+		    image 'kitware/cmake'
                 }
             }
             steps {
