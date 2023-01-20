@@ -5,11 +5,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent {
-                docker {
-		    image 'kitware/cmake'
-                }
-            }
             steps {
                 sh 'mkdir build'
 		sh 'cd build'
