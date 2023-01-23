@@ -11,6 +11,7 @@ pipeline {
                 sh 'cmake CMakeLists.txt'
                 sh 'cmake --build .'
                 sh './multibranch-sample-app'
+                sh './multibranch-sample-app-test'
             }
         }
     }
