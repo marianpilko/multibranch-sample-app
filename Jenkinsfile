@@ -12,7 +12,7 @@ pipeline {
                 //sh 'cmake --build .'
                 //sh './multibranch-sample-app'
                 //sh './multibranch-sample-app-test'
-                cmakeBuild cleanBuild: true, installation: 'InSearchPath', steps[[withCmake: true]]
+                cmakeBuild installation: 'InSearchPath', steps[[withCmake: true]]
             }
         }
         stage('Test') {
