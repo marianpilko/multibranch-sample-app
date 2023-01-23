@@ -10,6 +10,7 @@ pipeline {
                 sh 'ls -a'
                 sh 'cmake CMakeLists.txt'
                 sh 'cmake --build .'
+                sh './multibranch-sample-app'
             }
         }
     }
