@@ -6,12 +6,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mkdir build && cd build'
-                sh 'ls -a'
-                sh 'cmake CMakeLists.txt'
-                sh 'cmake --build .'
-                sh './multibranch-sample-app'
-                sh './multibranch-sample-app-test'
+                //sh 'mkdir build && cd build'
+                //sh 'ls -a'
+                //sh 'cmake CMakeLists.txt'
+                //sh 'cmake --build .'
+                //sh './multibranch-sample-app'
+                //sh './multibranch-sample-app-test'
+                cmakeBuild cleanBuild: true, installation: 'InSearchPath', steps[[withCmake: true]]
+            }
+        }
+        stage('Test') {
+            steps {
+                ctest 'InSearchPath'
             }
         }
     }
