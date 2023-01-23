@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mkdir build && cd build'
-                sh 'cmake ..'
+                sh 'cmake ../'
                 sh 'cmake --build .'
             }
         }
