@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh 'mkdir build && cd build'
                 sh 'ls -a'
-                sh 'cmake ../'
+                sh 'cmake CMakeLists.txt'
                 sh 'cmake --build .'
             }
         }
